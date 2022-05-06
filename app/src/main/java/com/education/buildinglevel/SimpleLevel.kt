@@ -15,8 +15,7 @@ class SimpleLevel : Fragment() {
         return inflater.inflate(R.layout.simple_level_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
-
 }
