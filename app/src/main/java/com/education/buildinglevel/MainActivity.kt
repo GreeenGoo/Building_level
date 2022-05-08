@@ -2,17 +2,28 @@ package com.education.buildinglevel
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.education.buildinglevel.databinding.ElectronicLevelFragmentBinding
-import com.education.buildinglevel.databinding.SimpleLevelFragmentBinding
+import com.education.buildinglevel.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var simpleBinding: SimpleLevelFragmentBinding
-    private lateinit var electronicBinding: ElectronicLevelFragmentBinding
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setContentView(R.layout.activity_main)
+        binding.goToFragment1Button.setOnClickListener{
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_fragment, SimpleLevel())
+                .commit()
+        }
+        binding.goToFragment2Button.setOnClickListener{
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_fragment, ElectronicLevel())
+                .commit()
+        }
     }
 }
