@@ -6,6 +6,7 @@
     tools:context=".SimpleLevel">
 
     <TextView
+        android:id="@+id/tvSensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fragment with a simple building level"
