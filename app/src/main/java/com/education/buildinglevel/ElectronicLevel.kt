@@ -17,5 +17,6 @@ class ElectronicLevel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        AccelerometersDatas(this.requireActivity(), R.id.tvSensorElectronic).getOptions()
     }
 }

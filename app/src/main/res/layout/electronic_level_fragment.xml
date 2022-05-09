@@ -6,9 +6,12 @@
     tools:context=".ElectronicLevel">
 
     <TextView
+        android:id="@+id/tvSensorElectronic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment with an electronic building level"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:text="0"
+        android:textColor="@color/purple_700"
+        android:textSize="34sp" />
 
 </FrameLayout>

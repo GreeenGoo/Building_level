@@ -1,5 +1,6 @@
 package com.education.buildinglevel
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.education.buildinglevel.databinding.ActivityMainBinding
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         binding.goToFragment1Button.setOnClickListener{
             supportFragmentManager
