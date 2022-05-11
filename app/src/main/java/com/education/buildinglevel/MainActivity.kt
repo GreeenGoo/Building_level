@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         binding.goToFragment1Button.setOnClickListener{

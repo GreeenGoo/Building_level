@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
 
@@ -7,7 +8,7 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,37 +18,33 @@
         tools:viewBindingIgnore="true">
         tools:viewBindingIgnore="true"
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/goToFragment1_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="16dp"
+            android:text="Fragment 1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
-            <Button
-                android:id="@+id/goToFragment1_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Fragment 1" />
-
-            <View
-                android:layout_width="50dp"
-                android:layout_height="0dp" />
-
-            <Button
-                android:id="@+id/goToFragment2_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Fragment 2" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/goToFragment2_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="176dp"
+            android:text="Fragment 2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/goToFragment1_button"
+            tools:ignore="MissingConstraints" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:ignore="InvalidId,MissingConstraints" />
-    </LinearLayout>
+            tools:ignore="InvalidId,MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
