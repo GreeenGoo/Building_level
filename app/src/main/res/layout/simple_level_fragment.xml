@@ -10,19 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        tools:context=".SimpleLevel">
-
-        <TextView
-            android:id="@+id/tvSensorSimple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:text="0"
-            android:textColor="@color/cardview_light_background"
-            android:textSize="48sp" />
-
-    </FrameLayout>
+        tools:context=".SimpleLevel"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"

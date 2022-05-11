@@ -31,7 +31,6 @@ class SimpleLevel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tvSensor = activity?.findViewById<TextView>(R.id.tvSensorSimple)
         val lRotation = activity?.findViewById<LinearLayout>(R.id.lRotationSimple)
         sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val sensor = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
@@ -43,7 +42,7 @@ class SimpleLevel : Fragment() {
                     Sensor.TYPE_MAGNETIC_FIELD -> magf = event.values.clone()
                 }
                 val outGravity =
-                    AccelerometersDatas().getOptions(event, accrs, magf, gravity, magnetic)
+                    AccelerometersDatas().getOptions(accrs, magf, gravity, magnetic)
                 SensorManager.getOrientation(outGravity, values)
                 val degree = values[2] * 57.2958f
                 var rotate = degree + 90
@@ -55,7 +54,6 @@ class SimpleLevel : Fragment() {
                     Color.RED
                 }
                 lRotation?.setBackgroundColor(color)
-                tvSensor?.text = "$rData°"
             }
 
             override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {

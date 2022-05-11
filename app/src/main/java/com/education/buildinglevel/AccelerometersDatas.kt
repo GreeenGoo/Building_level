@@ -5,7 +5,7 @@ import android.hardware.SensorManager
 
 class AccelerometersDatas {
     private val outGravity = FloatArray(9)
-    fun getOptions(event: SensorEvent?, accrs: FloatArray, magf: FloatArray, gravity: FloatArray, magnetic: FloatArray) : FloatArray {
+    fun getOptions(accrs: FloatArray, magf: FloatArray, gravity: FloatArray, magnetic: FloatArray) : FloatArray {
         SensorManager.getRotationMatrix(gravity, magnetic, accrs, magf)
         SensorManager.remapCoordinateSystem(
             gravity,

@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity"
-        tools:ignore="ExtraText,HardcodedText"
-        tools:viewBindingIgnore="true">
-        tools:viewBindingIgnore="true"
+        tools:context=".MainActivity">
 
         <Button
             android:id="@+id/goToFragment1_button"
@@ -24,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="176dp"
             android:layout_marginTop="16dp"
-            android:text="Fragment 1"
+            android:text="Mechanic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -34,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="176dp"
-            android:text="Fragment 2"
+            android:text="Electronic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/goToFragment1_button"
             tools:ignore="MissingConstraints" />
@@ -43,8 +34,5 @@
             android:id="@+id/main_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:ignore="InvalidId,MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:ignore="InvalidId,MissingConstraints"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
