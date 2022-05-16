@@ -29,7 +29,7 @@ class ElectronicLevel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tvSensor = activity?.findViewById<TextView>(R.id.tvSensorElectronic)
+        val tvSensor = activity?.findViewById<TextView>(R.id.tv_sensor_electronic)
         sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val sensor = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         val sensor2 = sManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)

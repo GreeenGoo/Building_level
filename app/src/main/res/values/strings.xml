@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Building level</string>
+    <string name="mechanic">Mechanic</string>
+    <string name="electronic">Electronic</string>
 </resources>

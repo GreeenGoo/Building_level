@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:orientation="horizontal"
     tools:context=".ElectronicLevel">
 
     <TextView
-        android:id="@+id/tvSensorElectronic"
+        android:id="@+id/tv_sensor_electronic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="@color/purple_700"
-        android:textSize="96sp" />
+        android:textSize="@dimen/electronic_level_text_size" />
 
 </FrameLayout>
