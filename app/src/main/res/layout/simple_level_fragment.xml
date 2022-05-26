@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        tools:context=".SimpleLevel"/>
+        tools:context=".SimpleLevel" />
 
     <LinearLayout
         android:id="@+id/left_green_stick"
@@ -41,6 +41,6 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/left_green_stick"
         app:layout_constraintEnd_toStartOf="@+id/right_green_stick"
-        app:layout_constraintStart_toEndOf="@+id/left_green_stick"/>
+        app:layout_constraintStart_toEndOf="@+id/left_green_stick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
