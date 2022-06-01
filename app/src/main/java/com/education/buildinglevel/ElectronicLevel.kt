@@ -14,7 +14,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class ElectronicLevel : Fragment() {
-    lateinit var sManager: SensorManager
+    private lateinit var sManager: SensorManager
     private var magnetic = FloatArray(9)
     private var gravity = FloatArray(9)
     private var accrs = FloatArray(3)
@@ -39,9 +39,6 @@ class ElectronicLevel : Fragment() {
                     Sensor.TYPE_ACCELEROMETER -> accrs = event.values.clone()
                     Sensor.TYPE_MAGNETIC_FIELD -> magf = event.values.clone()
                 }
-                val outGravity =
-                    AccelerometersDatas().getOptions(accrs, magf, gravity, magnetic)
-                SensorManager.getOrientation(outGravity, values)
                 val degree = values[2] * 57.2958f
                 val rData: Int = 90 + degree.toInt()
                 val color = if (rData == 0) {

@@ -1,6 +1,9 @@
 package com.education.buildinglevel
 
-import android.graphics.Color
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,13 +13,8 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 
 class SimpleLevel : Fragment() {
-    /*lateinit var sManager: SensorManager
-    private var magnetic = FloatArray(9)
-    private var gravity = FloatArray(9)
-    private var accrs = FloatArray(3)
-    private var magf = FloatArray(3)*/
     private var values = FloatArray(3)
-    private val lRotation = MainActivity().findViewById<LinearLayout>(R.id.main_level_stick)
+    private lateinit var sManager: SensorManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,32 +25,23 @@ class SimpleLevel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       /* sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        val lRotation = activity?.findViewById<LinearLayout>(R.id.main_level_stick)
+        sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val sensor = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         val sensor2 = sManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
         val sListener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
-                when (event?.sensor?.type) {
-                    Sensor.TYPE_ACCELEROMETER -> accrs = event.values.clone()
-                    Sensor.TYPE_MAGNETIC_FIELD -> magf = event.values.clone()
-                }*/
-                val outGravity = AccelerometersDatas().getSensorConditions()
+                val data = AccelerometersData(event, values)
+                val outGravity: FloatArray = data.getSensorConditions()
                 SensorManager.getOrientation(outGravity, values)
-                val degree = values[2] * 57.2958f
-                var rotate = degree + 90
-                lRotation?.rotation = rotate
-                val rData: Int = 90 + degree.toInt()
-                val color = if (rData == 0) {
-                    Color.GREEN
-                } else {
-                    Color.RED
-                }
-                lRotation?.setBackgroundColor(color)
+                lRotation?.rotation = data.getRotate()
+                lRotation?.setBackgroundColor(data.getColor())
             }
 
-            /*override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-            }*/
-
+            override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+            }
         }
-        /*sManager.registerListener(sListener, sensor, SensorManager.SENSOR_DELAY_NORMAL)
-        sManager.registerListener(sListener, sensor2, SensorManager.SENSOR_DELAY_NORMAL)*/
+        sManager.registerListener(sListener, sensor, SensorManager.SENSOR_DELAY_NORMAL)
+        sManager.registerListener(sListener, sensor2, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+}
