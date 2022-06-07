@@ -29,10 +29,10 @@ class SimpleLevel : Fragment() {
         sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val sensor = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         val sensor2 = sManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+        val data = AccelerometersData(values)
         val sListener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
-                val data = AccelerometersData(event, values)
-                val outGravity: FloatArray = data.getSensorConditions()
+                val outGravity: FloatArray = data.getSensorConditions(event)
                 SensorManager.getOrientation(outGravity, values)
                 lRotation?.rotation = data.getRotate()
                 lRotation?.setBackgroundColor(data.getColor())

@@ -5,13 +5,13 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorManager
 
-class AccelerometersData(private val event: SensorEvent?, private val values: FloatArray) {
+class AccelerometersData(private val values: FloatArray) {
     private var accr = FloatArray(3)
     private var magnf = FloatArray(3)
     private var magnetic = FloatArray(9)
     private var gravity = FloatArray(9)
     private var outGravity = FloatArray(9)
-    fun getSensorConditions(): FloatArray {
+    fun getSensorConditions(event: SensorEvent?): FloatArray {
         when (event?.sensor?.type) {
             Sensor.TYPE_ACCELEROMETER -> accr = event.values.clone()
             Sensor.TYPE_MAGNETIC_FIELD -> magnf = event.values.clone()
@@ -27,7 +27,7 @@ class AccelerometersData(private val event: SensorEvent?, private val values: Fl
     }
 
     fun getRotate(): Float {
-        return getDegree() + 90
+        return getDegree() -90
     }
 
     private fun getRDate(): Int {
