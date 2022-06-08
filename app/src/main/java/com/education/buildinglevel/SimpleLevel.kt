@@ -1,21 +1,20 @@
 package com.education.buildinglevel
 
 import android.content.Context
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 class SimpleLevel : Fragment() {
-    private var values = FloatArray(3)
     private lateinit var sManager: SensorManager
-
+    var data1 = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,21 +26,12 @@ class SimpleLevel : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val lRotation = activity?.findViewById<LinearLayout>(R.id.main_level_stick)
         sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        val sensor = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        val sensor2 = sManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
-        val data = AccelerometersData(values)
-        val sListener = object : SensorEventListener {
-            override fun onSensorChanged(event: SensorEvent?) {
-                val outGravity: FloatArray = data.getSensorConditions(event)
-                SensorManager.getOrientation(outGravity, values)
-                lRotation?.rotation = data.getRotate()
-                lRotation?.setBackgroundColor(data.getColor())
-            }
+        val accrViewModel = ViewModelProvider(this).get(AccelerometersData::class.java)
+        accrViewModel.getSensorConditions(sManager)
+        accrViewModel.outGravity().observe(viewLifecycleOwner, Observer {
+            lRotation?.rotation = accrViewModel.getRotate()
+            lRotation?.setBackgroundColor(accrViewModel.getColor())
+        })
 
-            override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-            }
-        }
-        sManager.registerListener(sListener, sensor, SensorManager.SENSOR_DELAY_NORMAL)
-        sManager.registerListener(sListener, sensor2, SensorManager.SENSOR_DELAY_NORMAL)
     }
 }
