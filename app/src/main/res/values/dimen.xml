@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="main_activity_margin_to_top">16dp</dimen>
+    <dimen name="electronic_level_text_size">96sp</dimen>
+    <dimen name="simple_level_back_green_sticks_width">60sp</dimen>
+    <dimen name="simple_level_back_green_sticks_height">4dp</dimen>
+    <dimen name="simple_level_main_green_sticks_width">0dp</dimen>
+    <dimen name="simple_level_main_green_sticks_height">3dp</dimen>
+    <dimen name="simple_level_sticks_distance">5dp</dimen>
+</resources>

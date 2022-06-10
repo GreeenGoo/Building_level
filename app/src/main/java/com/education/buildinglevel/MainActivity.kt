@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        //requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         binding.goToFragment1Button.setOnClickListener{
             supportFragmentManager

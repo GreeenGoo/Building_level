@@ -14,12 +14,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class ElectronicLevel : Fragment() {
-    lateinit var sManager: SensorManager
-    private var magnetic = FloatArray(9)
-    private var gravity = FloatArray(9)
-    private var accrs = FloatArray(3)
-    private var magf = FloatArray(3)
-    private var values = FloatArray(3)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,27 +24,24 @@ class ElectronicLevel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tvSensor = activity?.findViewById<TextView>(R.id.tvSensorElectronic)
-        sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        val values = FloatArray(SIZE_OF_ARRAY_THREE)
+        val tvSensor = activity?.findViewById<TextView>(R.id.tv_sensor_electronic)
+        val sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val sensor = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         val sensor2 = sManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
         val sListener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
-                when (event?.sensor?.type) {
+                /*when (event?.sensor?.type) {
                     Sensor.TYPE_ACCELEROMETER -> accrs = event.values.clone()
                     Sensor.TYPE_MAGNETIC_FIELD -> magf = event.values.clone()
                 }
                 val outGravity =
                     AccelerometersDatas().getOptions(accrs, magf, gravity, magnetic)
                 SensorManager.getOrientation(outGravity, values)
-                val degree = values[2] * 57.2958f
-                val rData: Int = 90 + degree.toInt()
-                val color = if (rData == 0) {
-                    Color.GREEN
-                } else {
-                    Color.RED
-                }
-                tvSensor?.text = "$rData°"
+                val degree = values[SECOND_INDEX_OF_ARRAY] * DEGREE_COEFFICIENT
+                val rData: Int = DEGREE_CORRECTION + degree.toInt()*/
+                val color = choiceOfColor(rData)
+                tvSensor?.text = "$rData"
                 tvSensor?.setTextColor(color)
             }
 
@@ -59,5 +51,22 @@ class ElectronicLevel : Fragment() {
         }
         sManager.registerListener(sListener, sensor, SensorManager.SENSOR_DELAY_NORMAL)
         sManager.registerListener(sListener, sensor2, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+
+    private fun choiceOfColor(data: Int) : Int {
+        return if (data == 0) {
+            Color.GREEN
+        } else {
+            Color.RED
+        }
+    }
+
+    companion object {
+        private const val SECOND_INDEX_OF_ARRAY = 2
+        private const val DEGREE_COEFFICIENT = 57.2958f
+        private const val SIZE_OF_ARRAY_NINE = 9
+        private const val SIZE_OF_ARRAY_THREE = 3
+        private const val DEGREE_CORRECTION = 90
+
     }
 }

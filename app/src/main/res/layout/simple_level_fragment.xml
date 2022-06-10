@@ -6,43 +6,41 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        tools:context=".SimpleLevel"/>
+        tools:context=".SimpleLevel" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="60dp"
-        android:layout_height="4dp"
-        android:background="@color/green"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="60dp"
-        android:layout_height="4dp"
+        android:id="@+id/left_green_stick"
+        android:layout_width="@dimen/simple_level_back_green_sticks_width"
+        android:layout_height="@dimen/simple_level_back_green_sticks_height"
         android:background="@color/green"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/lRotationSimple"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
+        android:id="@+id/right_green_stick"
+        android:layout_width="@dimen/simple_level_back_green_sticks_width"
+        android:layout_height="@dimen/simple_level_back_green_sticks_height"
         android:background="@color/green"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/left_green_stick" />
+
+    <LinearLayout
+        android:id="@+id/main_level_stick"
+        android:layout_width="@dimen/simple_level_main_green_sticks_width"
+        android:layout_height="@dimen/simple_level_back_green_sticks_height"
+        android:layout_marginStart="@dimen/simple_level_sticks_distance"
+        android:layout_marginEnd="@dimen/simple_level_sticks_distance"
+        android:background="@color/green"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/left_green_stick"
+        app:layout_constraintEnd_toStartOf="@+id/right_green_stick"
+        app:layout_constraintStart_toEndOf="@+id/left_green_stick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
