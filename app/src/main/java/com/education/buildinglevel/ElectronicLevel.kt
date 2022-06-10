@@ -24,30 +24,19 @@ class ElectronicLevel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val values = FloatArray(SIZE_OF_ARRAY_THREE)
         val tvSensor = activity?.findViewById<TextView>(R.id.tv_sensor_electronic)
         val sManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val sensor = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         val sensor2 = sManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+        val aData = AccelerometersData()
         val sListener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
-                /*when (event?.sensor?.type) {
-                    Sensor.TYPE_ACCELEROMETER -> accrs = event.values.clone()
-                    Sensor.TYPE_MAGNETIC_FIELD -> magf = event.values.clone()
-                }
-                val outGravity =
-                    AccelerometersDatas().getOptions(accrs, magf, gravity, magnetic)
-                SensorManager.getOrientation(outGravity, values)
-                val degree = values[SECOND_INDEX_OF_ARRAY] * DEGREE_COEFFICIENT
-                val rData: Int = DEGREE_CORRECTION + degree.toInt()*/
-                val color = choiceOfColor(rData)
-                tvSensor?.text = "$rData"
-                tvSensor?.setTextColor(color)
+                val rData = aData.getOptions(event).toInt()
+                tvSensor?.text = "$rData°"
+                tvSensor?.setTextColor(choiceOfColor(rData))
             }
-
             override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
             }
-
         }
         sManager.registerListener(sListener, sensor, SensorManager.SENSOR_DELAY_NORMAL)
         sManager.registerListener(sListener, sensor2, SensorManager.SENSOR_DELAY_NORMAL)
@@ -59,14 +48,5 @@ class ElectronicLevel : Fragment() {
         } else {
             Color.RED
         }
-    }
-
-    companion object {
-        private const val SECOND_INDEX_OF_ARRAY = 2
-        private const val DEGREE_COEFFICIENT = 57.2958f
-        private const val SIZE_OF_ARRAY_NINE = 9
-        private const val SIZE_OF_ARRAY_THREE = 3
-        private const val DEGREE_CORRECTION = 90
-
     }
 }
