@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable/digital_level.xml" value="0.124" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable/ic__5828223411655813058.xml" value="0.2285" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable/ic_battery_charging_full.xml" value="0.2285" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable/landscape_level.xml" value="0.1" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable/main_icon.xml" value="0.2285" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/drawable/selector.xml" value="0.1" />
         <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/layout/digital_level_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/layout/electronic_level_fragment.xml" value="0.36666666666666664" />
-        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/layout/simple_level_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/layout/landscape_level_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/layout/simple_level_fragment.xml" value="0.18854166666666666" />
         <entry key="..\:/Uladzislau/Building_level_4/app/src/main/res/menu/bottom_navigation.xml" value="0.1" />
         <entry key="..\:/Uladzislau/Buildinglevel/app/src/main/res/layout/activity_main(horizontal).xml" value="0.18958333333333333" />
         <entry key="..\:/Uladzislau/Buildinglevel/app/src/main/res/layout/activity_main.xml" value="0.25" />
