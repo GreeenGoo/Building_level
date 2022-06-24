@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/landscape_level"
+        android:icon="@drawable/landscape_level"
+        android:title="@string/landscape_fragment_button_name"/>
+    <item
+        android:id="@+id/digital_level"
+        android:icon="@drawable/digital_level"
+        android:title="@string/electronic_fragment_button_name"/>
+</menu>

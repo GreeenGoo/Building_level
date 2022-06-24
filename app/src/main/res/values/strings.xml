@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Building level</string>
+    <string name="landscape_fragment_button_name">Landscape</string>
+    <string name="electronic_fragment_button_name">Electronic</string>
 </resources>
