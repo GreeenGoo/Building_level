@@ -4,7 +4,7 @@
     //textSizes
     <dimen name="xxl_size">96sp</dimen>
     //Landscape level
-    <dimen name="landscape_level_side_green_sticks_width">60sp</dimen>
+    <dimen name="landscape_level_side_green_sticks_width">60dp</dimen>
     <dimen name="landscape_level_side_green_sticks_height">4dp</dimen>
     <dimen name="simple_level_main_green_sticks_height">3dp</dimen>
 
