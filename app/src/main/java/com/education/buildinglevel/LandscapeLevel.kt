@@ -34,7 +34,7 @@ class LandscapeLevel : Fragment() {
         val sensorEventListener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
                 val rData = accelerometersData.getOptions(event)
-                mainStickView.rotation = rData
+                mainStickView.rotation = -rData
                 mainStickView.setBackgroundColor(choiceOfColor(rData.toInt()))
             }
 

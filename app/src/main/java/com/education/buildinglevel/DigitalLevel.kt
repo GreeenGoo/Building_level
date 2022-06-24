@@ -34,7 +34,7 @@ class DigitalLevel : Fragment() {
         val accelerometersData = AccelerometersData()
         val sensorEventListener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent?) {
-                val rData = accelerometersData.getOptions(event).toInt()
+                val rData = Math.abs(accelerometersData.getOptions(event).toInt())
                 degreeTextView.setText("$rData°")
                 degreeTextView.setTextColor(choiceOfColor(rData))
             }
